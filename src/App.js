@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import Home from './Home';
+import NavBar from './NavBar';
+import Lokum from './Lokum';
+import Cannoli from './Cannoli';
+import Paleta from './Paleta';
+
 import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <Route exact path='/lokum'>
+          <Lokum />
+        </Route>
+        <Route exact path='/cannoli'>
+          <Cannoli />
+        </Route>
+        <Route exact path='/paleta'>
+          <Paleta />
+        </Route>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }
